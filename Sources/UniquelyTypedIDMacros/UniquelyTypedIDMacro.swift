@@ -3,7 +3,6 @@ import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 import SwiftDiagnostics
-import IdentifiedEnumCases
 
 /// Implementation of the `@UniquelyTypedID` macro,
 public struct UniquelyTypedIDMacro: PeerMacro {
@@ -73,7 +72,7 @@ public struct UniquelyTypedIDMacro: PeerMacro {
       case .unsupportedType(let name): "'@UniquelyTypedID' supports only \(SupportedTypes.allCases.map { "`\($0.rawValue)`" }.joined(separator: ", ")). The type `\(name)` is not yet supported."
       }
     }
-    
+
     public var caseID: String {
       switch self {
       case .expectedIdentifier: "expectedIdentifier"

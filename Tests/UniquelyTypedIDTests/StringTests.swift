@@ -21,6 +21,7 @@ final class StringTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         let id: ID
+      
         struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByStringLiteral {
           init(rawValue: String) {
             self.rawValue = rawValue
@@ -73,6 +74,7 @@ final class StringTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByStringLiteral {
           public init(rawValue: String) {
             self.rawValue = rawValue
@@ -125,6 +127,7 @@ final class StringTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: ID?
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByStringLiteral {
           public init(rawValue: String) {
             self.rawValue = rawValue
@@ -177,6 +180,7 @@ final class StringTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public let id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByStringLiteral {
           public init(rawValue: String) {
             self.rawValue = rawValue

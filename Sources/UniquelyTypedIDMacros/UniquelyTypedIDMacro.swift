@@ -61,7 +61,6 @@ public struct UniquelyTypedIDMacro: PeerMacro {
     }
   }
 
-  @IdentifiedEnumCases
   public enum Diagnostics: DiagnosticMessage {
     case expectedIdentifier
     case expectedVariableSyntax
@@ -74,9 +73,17 @@ public struct UniquelyTypedIDMacro: PeerMacro {
       case .unsupportedType(let name): "'@UniquelyTypedID' supports only \(SupportedTypes.allCases.map { "`\($0.rawValue)`" }.joined(separator: ", ")). The type `\(name)` is not yet supported."
       }
     }
+    
+    public var caseID: String {
+      switch self {
+      case .expectedIdentifier: "expectedIdentifier"
+      case .expectedVariableSyntax: "expectedVariableSyntax"
+      case .unsupportedType: "unsupportedType"
+      }
+    }
 
     public var diagnosticID: MessageID {
-      MessageID(domain: "UniquelyTypedIDMacro", id: self.id.rawValue)
+      MessageID(domain: "UniquelyTypedIDMacro", id: self.caseID)
     }
 
     public var severity: DiagnosticSeverity { .error }
@@ -85,11 +92,7 @@ public struct UniquelyTypedIDMacro: PeerMacro {
 
 private extension VariableDeclSyntax {
   var hasPublicModifier: Bool {
-    guard let modifiers = self.modifiers else {
-      return false
-    }
-
-    return modifiers.children(viewMode: .fixedUp)
+    self.modifiers.children(viewMode: .fixedUp)
       .compactMap { syntax in
         syntax.as(DeclModifierSyntax.self)?
           .children(viewMode: .fixedUp)

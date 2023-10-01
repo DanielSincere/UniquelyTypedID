@@ -21,6 +21,7 @@ final class IntergerTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         let id: MyID
+      
         struct MyID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByIntegerLiteral {
           init(rawValue: Int) {
             self.rawValue = rawValue
@@ -66,6 +67,7 @@ final class IntergerTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         var id: ID
+      
         struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByIntegerLiteral {
           init(rawValue: Int) {
             self.rawValue = rawValue
@@ -111,6 +113,7 @@ final class IntergerTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByIntegerLiteral {
           public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -156,6 +159,7 @@ final class IntergerTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: ID?
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByIntegerLiteral {
           public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -201,6 +205,7 @@ final class IntergerTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public let id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByIntegerLiteral {
           public init(rawValue: Int) {
             self.rawValue = rawValue

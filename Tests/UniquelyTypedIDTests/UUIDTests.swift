@@ -22,6 +22,7 @@ final class UUIDTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         let id: ID
+      
         struct ID: Codable, Hashable, Identifiable, CustomStringConvertible {
           let rawValue: UUID
           init?(_ uuidString: String) {
@@ -67,6 +68,7 @@ final class UUIDTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, CustomStringConvertible {
           public let rawValue: UUID
           public init?(_ uuidString: String) {
@@ -112,6 +114,7 @@ final class UUIDTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public var id: UUID?
+      
         public struct UUID: Codable, Hashable, Identifiable, RawRepresentable, CustomStringConvertible, ExpressibleByStringLiteral {
           public init(rawValue: String) {
             self.rawValue = rawValue
@@ -165,6 +168,7 @@ final class UUIDTests: XCTestCase {
       expandedSource: """
       class MyRecord: Codable, Hashable, Identifiable {
         public let id: ID
+      
         public struct ID: Codable, Hashable, Identifiable, CustomStringConvertible {
           public let rawValue: UUID
           public init?(_ uuidString: String) {

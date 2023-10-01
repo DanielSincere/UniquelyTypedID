@@ -11,7 +11,7 @@ I've used this approach for typesafety of record IDs in my own projects, usually
 In Package.swift, add the package to your dependencies.
 
 ```swift
-.package(url: "https://github.com/FullQueueDeveloper/UniquelyTypedID.git", from: "0.1.0"),
+.package(url: "https://github.com/FullQueueDeveloper/UniquelyTypedID.git", from: "1.0.0"),
 ```
 
 And add `"UniquelyTypedID"` to the list of your target's dependencies.
